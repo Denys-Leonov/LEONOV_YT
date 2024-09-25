@@ -25,7 +25,7 @@ public class BaseTest {
         webDriver.get("https://www.youtube.com/");
 
         Utils.waitABit(5);
-
+        logger.info("Open youtube.com");
         webDriver.quit();
     }
 }
