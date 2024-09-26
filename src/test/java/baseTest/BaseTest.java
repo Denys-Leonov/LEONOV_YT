@@ -26,6 +26,7 @@ public class BaseTest {
 
         Utils.waitABit(5);
         logger.info("Open youtube.com");
+        logger.info("check title: " + webDriver.getTitle());
         webDriver.quit();
     }
 }
