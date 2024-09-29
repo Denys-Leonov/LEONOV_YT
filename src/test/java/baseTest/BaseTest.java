@@ -2,39 +2,43 @@ package baseTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
-import org.junit.Test;
-import org.openqa.selenium.By;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import testData.TestData;
-import utils.Utils;
+import pages.PageProvider;
 
 import java.time.Duration;
 
+import static utils.ConfigProvider.*;
+
 public class BaseTest {
     private WebDriver webDriver;
-    protected Logger logger = Logger.getLogger(getClass());
+    private Logger logger = Logger.getLogger(getClass());
+    protected PageProvider pageProvider;
 
-    @Test
+
+    @Before
     public void setup() {
+        logger.info("Test started: " + testName.getMethodName());
         logger.info("Start browser");
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        logger.info("Browser opened");
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(configProperties.TIME_FOR_IMPLICIT_WAIT()));
+        pageProvider = new PageProvider(webDriver);
 
-        webDriver.get("https://demoqa.com/login");
+    }
 
-        WebElement userNameField =  webDriver.findElement(By.xpath("//input[@placeholder='UserName']"));
-        WebElement passwordField =  webDriver.findElement(By.xpath("//input[@placeholder='Password']"));
-        WebElement loginButton = webDriver.findElement(By.id("login"));
-        userNameField.sendKeys(TestData.USER_NAME);
-        passwordField.sendKeys(TestData.PASSWORD);
-        logger.info("check title: " + webDriver.getTitle());
-        loginButton.click();
-        Utils.waitABit(2);
+    @Rule
+    public TestName testName = new TestName();
+
+    @After
+    public void tearDown() {
         webDriver.quit();
+        logger.info("Browser closed");
+        logger.info("Test finished: " + testName.getMethodName());
     }
 }
