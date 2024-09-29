@@ -77,6 +77,18 @@ public class CommonActionsWithElements {
         }
     }
 
+    protected void scrollByAmount() {
+        try {
+            Actions actions = new Actions(webDriver);
+            actions.scrollByAmount(0, 500)
+                    .perform();
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+
+
     protected boolean isElementVisible(WebElement webElement, String elementName) {
         try {
             boolean state = webElement.isDisplayed();
