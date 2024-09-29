@@ -1,2 +1,53 @@
-1. SignUp test via gmail.com (take a shot, if not - find another website)
-2.
+#1 Login test
+    STR:
+        1. Open the login page (https://demoqa.com/login)
+        2. Enter valid username and password (take it from testData.TestData: USER_NAME, PASSWORD)
+        3. Click on the "Login" button
+    ER: "Delete Account" and "Log Out" buttons displayed on the page;
+
+#2 Incorrect login messages test (use Excel for #2)
+    STR:
+        1. Open the login page (https://demoqa.com/login)
+        2. Enter invalid username and password || enter empty username and valid password || enter valid username and empty password || empty username and empty password
+        3. Click on the "Login" button
+    ER: "Invalid username or password!" message displayed || red border around the username field || red border around the password field || red border around the username field and password field;
+
+#3 Search an existing book test (use parametrized test for #3 & #4)
+    STR:
+        1. Open the main page (https://demoqa.com)
+        2. Click on the "Book Store" button
+        3. Enter "Git" to the search field
+        4. Click on the "Git Pocket Guide" book
+    ER: The "Git Pocket Guide" book page is opened;
+
+#4 Search a non-existent book test (use parametrized test for #3 & #4)
+    STR:
+        1. Open the main page (https://demoqa.com)
+        2. Click on the "Book Store" button
+        3. Enter "Non-existent" to the search field
+    ER: "No rows found" message displayed;
+
+#5 Verify tooltips test
+    STR:
+        1. Open the main page (https://demoqa.com)
+        2. Click on "Widgets" button
+        3. Click on "Tool Tips" button
+        4. Hover over the "Hover me to see" button
+    ER: "You hovered over the Button" tooltip displayed;
+        5. Hover over the "Hover me to see" field
+    ER: "You hovered over the text field" tooltip displayed;
+        6. Hover over the "Contrary" link
+    ER: "You hovered over the Contrary" tooltip displayed;
+
+
+
+#6 Submit a lead form test
+    STR:
+        1. Open the main page (https://demoqa.com)
+        2. Click on "Forms" button
+        3. Click on "Practice Form" button
+        4. Enter valid data to the form fields (take it from testData.TestData: FIRST_NAME, LAST_NAME,
+         EMAIL, GENDER, MOBILE, SUBJECTS, HOBBIES,  CURRENT_ADDRESS, PERMANENT_ADDRESS, STATE, CITY)
+        5. Click on the "Submit" button
+    ER: The "Thanks for submitting the form" message displayed, all the fields are filled with the entered data;
+
