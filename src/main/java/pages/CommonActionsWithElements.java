@@ -72,21 +72,43 @@ public class CommonActionsWithElements {
             Actions actions = new Actions(webDriver);
             actions.moveToElement(webElement)
                     .perform();
+            logger.info("Scrolled to element " + getElementName(webElement));
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
 
-    protected void scrollByAmount() {
+    protected void scrollByAmount(int amount) {
         try {
             Actions actions = new Actions(webDriver);
-            actions.scrollByAmount(0, 500)
+            actions.scrollByAmount(0, amount)
+                    .perform();
+            logger.info("Scrolled down by amount " + amount);
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    protected void hoverOverElement(WebElement webElement) {
+        try {
+            Actions actions = new Actions(webDriver);
+            actions.moveToElement(webElement).pause(Duration.ofSeconds(1))
+                    .perform();
+            logger.info("Hovered over element " + getElementName(webElement));
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    protected void selectSubjectFromDropdown() {
+        try {
+            Actions actions = new Actions(webDriver);
+            actions.sendKeys(Keys.TAB)
                     .perform();
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
-
 
 
     protected boolean isElementVisible(WebElement webElement, String elementName) {

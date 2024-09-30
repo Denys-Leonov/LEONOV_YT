@@ -21,16 +21,33 @@ public class MainPage extends ParentPage {
     @FindBy(xpath = "//h5[text()='Book Store Application']")
     private WebElement bookStoreCard;
 
+    @FindBy(xpath = "//h5[text()='Widgets']")
+    private WebElement widgetsCard;
+
+    @FindBy(xpath = "//h5[text()='Forms']")
+    private WebElement formsCard;
+
     public MainPage openMainPage() {
         webDriver.get(baseUrl);
         return this;
     }
 
     public BookStorePage clickOnBookStore() {
-        scrollByAmount();
+        scrollByAmount(500);
         clickOnElement(bookStoreCard);
         return new BookStorePage(webDriver);
     }
 
 
+    public WidgetsPage clickOnWidgetsPage() {
+        scrollByAmount(500);
+        clickOnElement(widgetsCard);
+        return new WidgetsPage(webDriver);
+    }
+
+    public FormsPage clickOnFormsPage() {
+        scrollByAmount(500);
+        clickOnElement(formsCard);
+        return new FormsPage(webDriver);
+    }
 }

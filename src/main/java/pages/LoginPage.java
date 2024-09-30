@@ -71,7 +71,7 @@ public class LoginPage extends ParentPage {
     }
 
     public LoginPage clickLoginButton() {
-        scrollByAmount();
+        scrollByAmount(500);
         clickOnElement(buttonLogin);
         Utils.waitABit(1);// потрібно виконати додатковий скрол до кнопки через наявну рекламу, яка відсуває кнопку вниз
         return this;
