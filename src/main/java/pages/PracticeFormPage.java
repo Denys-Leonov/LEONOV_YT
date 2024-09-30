@@ -224,7 +224,9 @@ public class PracticeFormPage extends ParentPage {
 
     public PracticeFormPage checkIsFormSubmitted(String firstName, String lastName
                                                  ,String gender, String email, String mobile, String subject, String currentAddress, String state, String city) {
-        Assert.assertTrue("Form was not submitted", isElementVisible(closeButton));
+        scrollToElement(closeButton);
+        scrollByAmount(200);
+        checkIsElementVisible(closeButton);
 
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(studentName.getText()).as("Student name").isEqualTo(firstName + " " + lastName);

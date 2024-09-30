@@ -36,7 +36,7 @@ public class ToolTipsPage extends ParentPage {
 
     public ToolTipsPage hoverOnButtonWithToolTip() {
         scrollToElement(buttonWithToolTip);
-        scrollByAmount(100);
+        scrollByAmount(200);
         hoverOverElement(buttonWithToolTip);
         return this;
     }
@@ -48,7 +48,7 @@ public class ToolTipsPage extends ParentPage {
 
     public ToolTipsPage hoverOnInputFieldWithToolTip() {
         scrollToElement(inputFieldWithToolTip);
-        scrollByAmount(100);
+        scrollByAmount(200);
         hoverOverElement(inputFieldWithToolTip);
         return this;
     }
@@ -60,7 +60,7 @@ public class ToolTipsPage extends ParentPage {
 
     public ToolTipsPage hoverOnLinkWithToolTip() {
         scrollToElement(linkWithToolTip);
-        scrollByAmount(100);
+        scrollByAmount(200);
         hoverOverElement(linkWithToolTip);
         return this;
     }
