@@ -16,16 +16,15 @@
     STR:
         1. Open the main page (https://demoqa.com)
         2. Click on the "Book Store" button
-        3. Enter "Git" to the search field
-        4. Click on the "Git Pocket Guide" book
-    ER: The "Git Pocket Guide" book page is opened;
+        3. Enter "Java" to the search field
+    ER: The amount of books displayed on the page is equal to the amount of books with the "Java" title = [4];
 
 #4 Search a non-existent book test (use parametrized test for #3 & #4)
     STR:
         1. Open the main page (https://demoqa.com)
         2. Click on the "Book Store" button
         3. Enter "Non-existent" to the search field
-    ER: "No rows found" message displayed;
+    ER: The amount of books displayed on the page is equal to 0;
 
 #5 Verify tooltips test
     STR:

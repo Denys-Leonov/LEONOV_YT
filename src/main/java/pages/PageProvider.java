@@ -24,4 +24,8 @@ public class PageProvider {
     public ProfilePage getProfilePage() {
         return new ProfilePage(webDriver);
     }
+
+    public BookStorePage getBookStorePage() {
+        return new BookStorePage(webDriver);
+    }
 }
